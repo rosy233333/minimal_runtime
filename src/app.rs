@@ -92,15 +92,11 @@ fn test_block_wake_yield() -> i32 {
         });
     }
 
-    // loop {
-    //     BLOCK_QUEUE.lock().wake_all_to_global();
-    // }
-
-    BLOCK_QUEUE.lock().wake_all_to_global();
-
-    let task_id = current_id();
-    warn!("main task {task_id}: task spawn complete");
-    0
+    assert!(change_current_priority(2).is_ok()); // 使主任务可以被子任务抢占
+    
+    loop {
+        BLOCK_QUEUE.lock().wake_all_to_global();
+    }
 }
 
 #[allow(dead_code)]

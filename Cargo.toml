@@ -13,12 +13,12 @@ log = "0.4"
 sbi-rt = { version = "0.0.2", features = ["legacy"] }
 axalloc = { git = "https://github.com/Starry-OS/axalloc" }
 dtb-walker = "=0.2.0-alpha.3"
-spinlock = { path = "../project2210132-233191/code/dependencies/spinlock", default-features = false }
-percpu = { path = "../project2210132-233191/code/dependencies/percpu", optional = true }
+spinlock = { path = "../code/dependencies/spinlock", default-features = false }
+percpu = { path = "../code/dependencies/percpu", optional = true }
 ## app
-task_management = { path = "../project2210132-233191/code/task_management", default-features = false, features = ["irq"] }
+task_management = { path = "../code/task_management", default-features = false, features = ["irq"] }
 lazy_init = { git = "https://github.com/Starry-OS/lazy_init.git" }
-trap_handler = { path = "../project2210132-233191/code/trap_handler", default-features = false, features = ["log", "timer"] }
+trap_handler = { path = "../code/trap_handler", default-features = false, features = ["log", "timer"] }
 riscv = "0.11"
 crate_interface = "0.1.3"
 
